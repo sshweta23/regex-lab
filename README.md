@@ -23,7 +23,7 @@ An interactive web tool to **build, generate, and compare regular expressions**.
 
 ## 🚀 Live Demo
 
-(Will be added after deployment)
+https://sshweta23.github.io/regex-lab/
 
 ---
 
