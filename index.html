@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regex Lab</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="badge">● REGEX.LAB — V1</div>
+
+<h1>
+Build, generate & <span class="highlight">compare</span><br>
+regular expressions.
+</h1>
+
+<div class="layout">
+
+<!-- BUILDER -->
+<div class="card">
+<div class="section-title">01 · Builder <span class="small">tap to insert</span></div>
+
+<div class="group-label">PATTERN</div>
+<div class="input-wrap">
+  <span class="slash left">/</span>
+  <input id="regexInput" class="input" placeholder="e.g. a(b|c)*">
+  <span class="slash right">/</span>
+</div>
+
+<div class="group-label">CHARACTERS</div>
+<div class="palette">
+<button onclick="insert('a')">a <span>letter</span></button>
+<button onclick="insert('0')">0 <span>digit</span></button>
+<button onclick="insert('.')">. <span>any</span></button>
+<button onclick="insert('\\d')">\\d <span>digit</span></button>
+<button onclick="insert('\\w')">\\w <span>word</span></button>
+<button onclick="insert('\\s')">\\s <span>space</span></button>
+</div>
+
+<div class="group-label">GROUPS & CLASSES</div>
+<div class="palette">
+<button onclick="insert('()')">() <span>group</span></button>
+<button onclick="insert('[abc]')">[abc]</button>
+<button onclick="insert('[a-z]')">[a-z]</button>
+<button onclick="insert('[^a]')">[^a]</button>
+<button onclick="insert('|')">| <span>alt</span></button>
+</div>
+
+<div class="group-label">QUANTIFIERS</div>
+<div class="palette">
+<button onclick="insert('*')">* <span>0+</span></button>
+<button onclick="insert('+')">+ <span>1+</span></button>
+<button onclick="insert('?')">? <span>0/1</span></button>
+</div>
+
+<div class="controls">
+<button class="btn" onclick="clearAll()">Reset</button>
+</div>
+
+</div>
+
+<!-- LANGUAGE -->
+<div class="card dark">
+<div class="section-title">02 · Language <span class="small" id="count">0 strings</span></div>
+
+<div class="small">MAX LENGTH: <b id="lenVal">5</b></div>
+<input type="range" min="1" max="6" value="5" id="maxLen" class="range" oninput="updateLen()">
+
+<div class="output" id="generated"><i>Type a pattern to begin…</i></div>
+</div>
+
+</div>
+
+<!-- EQUIVALENCE -->
+<div class="card equiv">
+<div class="section-title">03 · Equivalence <span class="small">bounded check · strings up to length 5</span></div>
+
+<div class="layout">
+<div class="input-wrap">
+<span class="slash left">/</span>
+<input id="regex1" class="input" placeholder="a(b|c)*">
+<span class="slash right">/</span>
+</div>
+
+<div class="input-wrap">
+<span class="slash left">/</span>
+<input id="regex2" class="input" placeholder="ab*|ac*">
+<span class="slash right">/</span>
+</div>
+</div>
+
+<div class="controls">
+<button class="btn primary" onclick="checkEquivalence()">Compare</button>
+</div>
+
+<div id="result" class="result-box">Result will appear here</div>
+<div class="note">Regex equivalence is undecidable in general. This performs bounded checking.</div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
